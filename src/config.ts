@@ -8,7 +8,7 @@ const schema = z.object({
   HOST: z.string().default("0.0.0.0"),
   LOG_LEVEL: z.string().default("info"),
   DB_PATH: z.string().default("./data/gitbot.db"),
-  ADMIN_SECRET: z.string().min(16, "ADMIN_SECRET must be at least 16 characters"),
+  ADMIN_SECRET: z.string().min(8, "ADMIN_SECRET must be at least 8 characters"),
   LIBRARY_REPO: z.string().regex(/^[\w.-]+\/[\w.-]+$/, "LIBRARY_REPO must be owner/name").default("gitbot-hq/Library"),
   LIBRARY_REF: z.string().default("main"),
   GITHUB_TOKEN: z.preprocess(blankToUndefined, z.string().optional()),
