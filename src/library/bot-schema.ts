@@ -19,7 +19,7 @@ export const AGENTS = ["claude-code", "codex", "opencode"] as const;
 export const PERMISSION_MODES = ["ask-permissions", "auto-approve", "plan"] as const;
 
 export const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-export const MAX_INSTRUCTION_WORDS = 650; // the spec says "~600"
+export const MAX_INSTRUCTION_WORDS = 1500; // the library spec says "~600"; we allow more room
 
 const trimmed = (max: number, min = 1) => z.string().trim().min(min).max(max);
 const toolList = z.array(z.string().trim().min(1)).min(1).optional();

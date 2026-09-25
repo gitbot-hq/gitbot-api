@@ -71,7 +71,7 @@ describe("parseBotFolder", () => {
     ["bad github handle", (f) => withJson(f, (j) => { j.author = { github: "-bad-", name: "x" }; }), /author.github/],
     ["missing instructions", (f) => { const m = new Map(f); m.delete("instructions.md"); return m; }, /instructions.md is missing/],
     ["empty instructions", (f) => new Map(f).set("instructions.md", "\n"), /instructions.md is missing or empty/],
-    ["too many words", (f) => new Map(f).set("instructions.md", "word ".repeat(651)), /651 words/],
+    ["too many words", (f) => new Map(f).set("instructions.md", "word ".repeat(1501)), /1501 words/],
     ["extra file", (f) => new Map(f).set("logo.png", "x"), /unexpected files.*logo.png/],
   ];
   it.each(rejects)("rejects %s", (_name, mutate, message) => {
